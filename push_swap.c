@@ -6,53 +6,68 @@
 /*   By: vivaccar <vivaccar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 15:00:10 by vivaccar          #+#    #+#             */
-/*   Updated: 2023/11/29 16:35:29 by vivaccar         ###   ########.fr       */
+/*   Updated: 2023/12/02 17:12:34 by vivaccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char	**start_values(int argc, char **argv)
+t_stack	*create_node(int n)
 {
-	char	**values;
-	
-	if (argc == 2)
-	{
-		values == ft_split(argv, ' ');
-		return (values);
-	}
-	else
-	return (argv);
+	t_stack	*node;
+
+	node = malloc(sizeof(t_stack));
+	if (node == NULL)
+		return (NULL);
+	node ->value = n;
+	node ->next = NULL;
+	return (node);
 }
-t_stack	*start_stack(char **values, int argc)
+
+void	start_stack(t_stack **head, char **argv)
 {
-	t_stack	*stack_a;
 	int		i;
-	int		number;
-	
-	i = 1;
-	number = 0;
-	stack_a = NULL;
-	
-	while (values[i])
+	t_stack	*new_last;
+	t_stack	*temp;
+
+	i = 0;
+	while (argv[i])
 	{
-		number = ft_atoi(values[i]);
-		stack_a = ft_lstnew((void *)number);
+		new_last = create_node(ft_atoi(argv[i]));
+		if (*head == NULL)
+			*head = new_last;
+		else
+		{
+			temp = *head;
+			while (temp ->next != NULL)
+				temp = temp->next;
+			temp ->next = new_last;
+		}
+		i++;
 	}
-	
 }
 
 int	main(int argc, char	**argv)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
-	char	**values;
 	
+	stack_a = NULL;
+	stack_b = NULL;
+ 	if (argc == 1 || !argv[1][0])
+		return (0);
 	if (!check_input(argv, argc))
 		return(write (1, "erro", 4));
-	return (write (1, "ok", 2));
-	stack_a = malloc(sizeof(t_stack));
-	stack_b = NULL;
-	values = start_values(argc, argv);
-	stack_a = start_stack(values, argc);
+	if (argc == 2)
+		argv = ft_split(argv[1], ' ');
+	else 
+		argv = argv + 1;
+	start_stack(&stack_a, argv);
+	while (stack_a != NULL)
+	{
+		printf("%i", stack_a->value);
+		stack_a = stack_a->next;
+		printf("\n");
+	}
+	//return (write (1, "ok", 2));
 }

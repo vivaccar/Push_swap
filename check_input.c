@@ -6,7 +6,7 @@
 /*   By: vivaccar <vivaccar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 12:27:33 by vivaccar          #+#    #+#             */
-/*   Updated: 2023/11/29 16:03:27 by vivaccar         ###   ########.fr       */
+/*   Updated: 2023/12/01 18:52:10 by vivaccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ int	check_input(char **argv, int argc)
 	int		t;
 	int		j;
 	
+	j = 0;
 	i = 0;
 	if (argc == 2)
 		numbers = ft_split(argv[1], ' ');
@@ -71,7 +72,8 @@ int	check_input(char **argv, int argc)
 			return (0);
 		i++;
 	}
-	free (numbers);
+	if (argc == 2)
+		free (numbers);
 	return (1);
 }
 
