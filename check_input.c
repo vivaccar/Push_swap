@@ -6,11 +6,36 @@
 /*   By: vivaccar <vivaccar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 12:27:33 by vivaccar          #+#    #+#             */
-/*   Updated: 2023/12/02 17:21:53 by vivaccar         ###   ########.fr       */
+/*   Updated: 2023/12/03 14:02:41 by vivaccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+long long	ft_atol(const char *str)
+{
+	int			i;
+	long long	result;
+	long long	signal;
+
+	signal = 1;
+	i = 0;
+	result = 0;
+	while ((str[i] >= 9 && str[i] <= 13) || (str[i] == ' '))
+		i++;
+	if ((str[i] == '+' || str[i] == '-'))
+	{
+		if (str[i] == '-')
+			signal = signal * -1;
+		i++;
+	}
+	while ((str[i] >= '0' && str[i] <= '9'))
+	{
+		result = result * 10 + str[i] - '0';
+		i++;
+	}
+	return (result * signal);
+}
 
 int	check_repeat(char **numbers, int t)
 {
@@ -50,9 +75,9 @@ int	check_digit(char *number)
 
 int	check_input(char **argv, int argc)
 {
-	char	**numbers;
-	int		i;
-	int		t;
+	char			**numbers;
+	int				i;
+	long long		t;
 
 	i = 0;
 	if (argc == 2)
@@ -63,7 +88,9 @@ int	check_input(char **argv, int argc)
 	}
 	while (numbers[i])
 	{
-		t = ft_atoi(numbers[i]);
+		t = ft_atol(numbers[i]);
+		if (t > 2147483647 || t < -2147483648)
+			return (0);
 		if (!check_digit(numbers[i]) || !check_repeat(numbers, t))
 			return (0);
 		i++;

@@ -1,4 +1,4 @@
-SRCS	=	push_swap.c check_input.c start_stack.c
+SRCS	=	push_swap.c check_input.c start_stack.c moves.c
 
 OBJS	=	$(SRC:.c =.o)
 
