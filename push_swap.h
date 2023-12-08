@@ -6,7 +6,7 @@
 /*   By: vivaccar <vivaccar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 11:19:34 by vivaccar          #+#    #+#             */
-/*   Updated: 2023/12/03 17:50:38 by vivaccar         ###   ########.fr       */
+/*   Updated: 2023/12/08 17:12:21 by vivaccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,11 @@ int			check_repeat(char **numbers, int t);
 t_stack		*create_node(int n);
 void		start_stack(t_stack **head, char **argv);
 long long	ft_atol(const char *str);
-t_stack		*find_last(t_stack *stack);
-void		last_node(t_stack *head);
 
 // SORT
 int			stack_is_sorted(t_stack *stack);
 int			stack_size(t_stack *stack);
 void		swap(t_stack **head);
+void		sa(t_stack **a);
 
 #endif

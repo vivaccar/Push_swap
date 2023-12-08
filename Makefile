@@ -1,6 +1,6 @@
-SRCS	=	push_swap.c check_input.c start_stack.c moves.c
+SRCS	=	push_swap.c check_input.c start_stack.c utils.c
 
-OBJS	=	$(SRC:.c =.o)
+OBJS	=	$(SRCS:.c=.o)
 
 CC		=	cc
 
@@ -15,20 +15,20 @@ LIBFTD  = ./Libft
 all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBFTA)
-						cp $(LIBFTA) $(NAME)
-						ar rcs $(NAME) $(OBJS)
+	cp $(LIBFTA) $(NAME)
+	ar rcs $(NAME) $(OBJS)
 
 clean:
-						rm -f $(OBJS)
-						make clean -C $(LIBFTD)
+	rm -f $(OBJS)
+	make clean -C $(LIBFTD)
 
 fclean: clean
-						rm -f $(NAME)
-						make fclean -C $(LIBFTD)
+	rm -f $(NAME)
+	make fclean -C $(LIBFTD)
 
 re: fclean all
 
 $(LIBFTA): $(LIBFTD)
-						make -C $(LIBFTD)
+	make -C $(LIBFTD)
 
 
