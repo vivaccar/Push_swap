@@ -5,25 +5,38 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vivaccar <vivaccar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/08 18:26:12 by vivaccar          #+#    #+#             */
-/*   Updated: 2023/12/08 18:26:40 by vivaccar         ###   ########.fr       */
+/*   Created: 2023/12/03 15:28:39 by vivaccar          #+#    #+#             */
+/*   Updated: 2023/12/08 16:54:37 by vivaccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap(t_stack **head)
+int	stack_size(t_stack *stack)
 {
-	if (!*head || !(*head)->next)
-		return;
-	*head = (*head)->next;
-	(*head)->next = (*head)->prev;
-	(*head)->next->prev = *head;
-	(*head)->next->next = NULL;
+	int	i;
+
+	i = 0;
+	while (stack)
+	{
+		stack = stack->next;
+		i++;
+	}
+	return (i);
 }
 
-void	sa(t_stack **a)
+int	stack_is_sorted(t_stack *stack)
 {
-	swap(a);
-	write (1, "sa\n", 3);
+	if (stack == NULL)
+		return (1);
+	while (stack->next)
+	{
+		if (stack->value > stack->next->value)
+		{
+			return (0);
+		}
+		stack = stack->next;
+	}
+	return (1);
 }
+
