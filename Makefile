@@ -1,4 +1,5 @@
-SRCS	=	push_swap.c check_input.c start_stack.c utils.c
+SRCS	=	push_swap.c check_input.c start_stack.c utils.c moves.c \
+			sorts.c
 
 OBJS	=	$(SRCS:.c=.o)
 
@@ -15,8 +16,7 @@ LIBFTD  = ./Libft
 all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBFTA)
-	cp $(LIBFTA) $(NAME)
-	ar rcs $(NAME) $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFTA) -o $(NAME)
 
 clean:
 	rm -f $(OBJS)

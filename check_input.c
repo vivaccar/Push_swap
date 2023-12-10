@@ -6,7 +6,7 @@
 /*   By: vivaccar <vivaccar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 12:27:33 by vivaccar          #+#    #+#             */
-/*   Updated: 2023/12/03 14:02:41 by vivaccar         ###   ########.fr       */
+/*   Updated: 2023/12/09 20:22:50 by vivaccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,10 @@ int	check_digit(char *number)
 	while (number[i])
 	{
 		if (!ft_isdigit(number[i]))
-			return(0);
+			return (0);
 		i++;
 	}
-	return(1);
+	return (1);
 }
 
 int	check_input(char **argv, int argc)
@@ -99,4 +99,3 @@ int	check_input(char **argv, int argc)
 		free (numbers);
 	return (1);
 }
-
