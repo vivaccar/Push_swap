@@ -6,7 +6,7 @@
 /*   By: vivaccar <vivaccar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 12:27:33 by vivaccar          #+#    #+#             */
-/*   Updated: 2023/12/09 20:22:50 by vivaccar         ###   ########.fr       */
+/*   Updated: 2023/12/12 21:21:46 by vivaccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,22 @@ int	check_digit(char *number)
 	return (1);
 }
 
+
+void	str_free(char ***numbers)
+{
+	int	i;
+
+	i = 0;
+	while ((*numbers)[i])
+	{
+		free((*numbers)[i]);
+		(*numbers)[i] = NULL;
+		i++;
+	}
+	free(*numbers);
+	*numbers = NULL;
+}
+
 int	check_input(char **argv, int argc)
 {
 	char			**numbers;
@@ -83,19 +99,20 @@ int	check_input(char **argv, int argc)
 	if (argc == 2)
 		numbers = ft_split(argv[1], ' ');
 	else
-	{
 		numbers = argv + 1;
-	}
 	while (numbers[i])
 	{
 		t = ft_atol(numbers[i]);
-		if (t > 2147483647 || t < -2147483648)
+		if ((t > 2147483647 || t < -2147483648) || !numbers[i][0]
+			|| !check_digit(numbers[i]) || !check_repeat(numbers, t))		
+		{
+			if (argc == 2)
+				str_free(&numbers);
 			return (0);
-		if (!check_digit(numbers[i]) || !check_repeat(numbers, t))
-			return (0);
+		}
 		i++;
 	}
 	if (argc == 2)
-		free (numbers);
+		str_free(&numbers);
 	return (1);
 }
