@@ -6,7 +6,7 @@
 /*   By: vivaccar <vivaccar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 18:26:12 by vivaccar          #+#    #+#             */
-/*   Updated: 2023/12/09 20:30:39 by vivaccar         ###   ########.fr       */
+/*   Updated: 2023/12/13 22:01:15 by vivaccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,19 @@ void	rra(t_stack **a)
 {
 	r_rotate(a);
 	write (1, "rra\n", 4);
+}
+
+void	rrb(t_stack **b)
+{
+	r_rotate(b);
+	write (1, "rrb\n", 4);
+}
+
+void	rrr(t_stack **a, t_stack **b)
+{
+	r_rotate(a);
+	r_rotate(b);
+	write (1, "rrr\n", 4);
 }
 
 void	swap(t_stack **head)

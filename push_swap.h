@@ -6,7 +6,7 @@
 /*   By: vivaccar <vivaccar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 11:19:34 by vivaccar          #+#    #+#             */
-/*   Updated: 2023/12/12 21:47:30 by vivaccar         ###   ########.fr       */
+/*   Updated: 2023/12/13 21:58:06 by vivaccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,12 @@ void		sa(t_stack **a);
 // REV ROTATE
 void		r_rotate(t_stack **head);
 void		rra(t_stack **a);
+void		rrb(t_stack **b);
+void		rrr(t_stack **a, t_stack **b);
+
+// PUSH
+void		pa(t_stack **a, t_stack **b);
+void		pb(t_stack **a, t_stack **b);
+void		push(t_stack **out, t_stack **in);
 
 #endif
