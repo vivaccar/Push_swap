@@ -6,7 +6,7 @@
 /*   By: vivaccar <vivaccar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 11:19:34 by vivaccar          #+#    #+#             */
-/*   Updated: 2023/12/14 20:22:29 by vivaccar         ###   ########.fr       */
+/*   Updated: 2023/12/14 22:18:01 by vivaccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ void		sort_three(t_stack **head);
 t_stack		*find_last(t_stack *stack);
 void		ft_free(t_stack **head);
 void		str_free(char ***numbers);
-void		stack_sort(t_stack **stack_a);
+void		push_swap(t_stack **stack_a);
+t_stack		*start_b(t_stack **stack_a);
 
 // ROTATE
 void		rotate(t_stack **head);
