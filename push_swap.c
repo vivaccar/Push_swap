@@ -6,21 +6,44 @@
 /*   By: vivaccar <vivaccar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 15:00:10 by vivaccar          #+#    #+#             */
-/*   Updated: 2023/12/14 21:18:35 by vivaccar         ###   ########.fr       */
+/*   Updated: 2023/12/14 22:30:37 by vivaccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	start_sort(t_stack **stack_a, t_stack **stack_b)
+void	push_b_3(t_stack **a, t_stack **b)
 {
 	
 }
 
-void	stack_sort(t_stack **stack_a)
+t_stack	*start_b(t_stack **stack_a)
 {
-	t_stack	*stack_b = NULL;
+	t_stack	*stack_b;
 
+	stack_b = NULL;
+
+	if (stack_size(*stack_a) > 3)
+		pb(stack_a, &stack_b);
+	if (stack_size(*stack_a) > 3)
+		pb(stack_a, &stack_b);
+	if (stack_size(*stack_a) > 3)
+		push_b_3(stack_a, &stack_b);
+	t_stack *tmp = stack_b;
+	printf ("STACK B:\n");
+	while (tmp)
+	{
+		printf("%i\n", tmp->value);
+		tmp = tmp->next;		
+	}
+	return (stack_b);	
+}
+
+void	push_swap(t_stack **stack_a)
+{
+	t_stack		*stack_b;
+
+	stack_b == NULL;
 	if (!stack_is_sorted(*stack_a))
 	{
 		if (stack_size(*stack_a) == 2)
@@ -28,19 +51,7 @@ void	stack_sort(t_stack **stack_a)
 		if (stack_size(*stack_a) == 3)
 			sort_three(stack_a);
  		if (stack_size(*stack_a) > 3)
-			start_sort(stack_a, &stack_b);
-/* 			pb(stack_a, &stack_b);
-		if (stack_size(*stack_a) > 3)
-			pb(stack_a, &stack_b); */
-/* 		if (stack_size(*stack_a) > 3)
-			start_stack_b(stack_a, &stack_b); */
-		t_stack *tmp = stack_b;
-		printf ("STACK B:\n");
-		while (tmp)
-		{
-			printf("%i\n", tmp->value);
-			tmp = tmp->next;
-		}		
+			stack_b = start_b(stack_a);
 	}
 }
 
@@ -58,7 +69,7 @@ int	main(int argc, char	**argv)
 	else 
 		argv = argv + 1;
 	start_stack(&stack_a, argv);
-	stack_sort(&stack_a);
+	push_swap(&stack_a);
 	t_stack	*test;
 	test = stack_a;
 	printf ("STACK A:\n");

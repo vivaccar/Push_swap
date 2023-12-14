@@ -31,5 +31,3 @@ re: fclean all
 
 $(LIBFTA): $(LIBFTD)
 	make -C $(LIBFTD)
-
-
