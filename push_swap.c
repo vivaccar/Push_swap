@@ -6,11 +6,16 @@
 /*   By: vivaccar <vivaccar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 15:00:10 by vivaccar          #+#    #+#             */
-/*   Updated: 2023/12/14 21:01:53 by vivaccar         ###   ########.fr       */
+/*   Updated: 2023/12/14 21:18:35 by vivaccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	start_sort(t_stack **stack_a, t_stack **stack_b)
+{
+	
+}
 
 void	stack_sort(t_stack **stack_a)
 {
@@ -22,10 +27,11 @@ void	stack_sort(t_stack **stack_a)
 			sa(stack_a);		
 		if (stack_size(*stack_a) == 3)
 			sort_three(stack_a);
+ 		if (stack_size(*stack_a) > 3)
+			start_sort(stack_a, &stack_b);
+/* 			pb(stack_a, &stack_b);
 		if (stack_size(*stack_a) > 3)
-			pb(stack_a, &stack_b);
-		if (stack_size(*stack_a) > 3)
-			pb(stack_a, &stack_b);
+			pb(stack_a, &stack_b); */
 /* 		if (stack_size(*stack_a) > 3)
 			start_stack_b(stack_a, &stack_b); */
 		t_stack *tmp = stack_b;
