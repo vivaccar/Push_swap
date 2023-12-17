@@ -6,7 +6,7 @@
 /*   By: vivaccar <vivaccar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 11:19:34 by vivaccar          #+#    #+#             */
-/*   Updated: 2023/12/14 22:18:01 by vivaccar         ###   ########.fr       */
+/*   Updated: 2023/12/16 23:58:18 by vivaccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,18 @@
 # include "stdlib.h"
 # include "unistd.h"
 # include "stdio.h"
+# include "limits.h"
 
 typedef struct s_stack
 {
 	int				value;
+	int				index;
+	int				before_med;
+	int				cost;
+	int				cheap;
 	struct s_stack	*next;
 	struct s_stack	*prev;
+	struct s_stack	*target;
 }					t_stack;
 
 // CHECK ERRORS

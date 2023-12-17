@@ -17,7 +17,7 @@ LIBFTD  = ./Libft
 all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBFTA)
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFTA) -o $(NAME)
+	$(CC) -g $(CFLAGS) $(OBJS) $(LIBFTA) -o $(NAME)
 
 clean:
 	rm -f $(OBJS)
