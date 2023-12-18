@@ -6,7 +6,7 @@
 /*   By: vivaccar <vivaccar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 11:19:34 by vivaccar          #+#    #+#             */
-/*   Updated: 2023/12/16 23:58:18 by vivaccar         ###   ########.fr       */
+/*   Updated: 2023/12/18 22:06:32 by vivaccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,14 @@ t_stack		*find_last(t_stack *stack);
 void		ft_free(t_stack **head);
 void		str_free(char ***numbers);
 void		push_swap(t_stack **stack_a);
-t_stack		*start_b(t_stack **stack_a);
+void		start_b(t_stack **stack_a, t_stack **stack_b);
+
+// SET NODES
+void		set_datas(t_stack **a, t_stack **b);
+void		get_target(t_stack **a, t_stack **b);
+void		get_cost(t_stack **a, t_stack **b);
+t_stack		*set_cheapest(t_stack **a);
+void		get_index_med(t_stack **a);
 
 // ROTATE
 void		rotate(t_stack **head);
@@ -74,5 +81,12 @@ void		rrr(t_stack **a, t_stack **b);
 void		pa(t_stack **a, t_stack **b);
 void		pb(t_stack **a, t_stack **b);
 void		push(t_stack **out, t_stack **in);
+
+// PUSH B
+void		rotate_ab(t_stack **stack_a, t_stack **stack_b, t_stack *cheapest_node);
+void		rev_rotate_ab(t_stack **stack_a, t_stack **stack_b, t_stack *cheapest_node);
+void		ra_and_rrb(t_stack **stack_a, t_stack **stack_b, t_stack *cheapest_node);
+void		rra_and_rb(t_stack **stack_a, t_stack **stack_b, t_stack *cheapest_node);
+void		push_to_b(t_stack **stack_a, t_stack **stack_b);
 
 #endif
