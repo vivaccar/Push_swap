@@ -6,7 +6,7 @@
 /*   By: vivaccar <vivaccar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/03 15:28:39 by vivaccar          #+#    #+#             */
-/*   Updated: 2023/12/10 18:04:24 by vivaccar         ###   ########.fr       */
+/*   Updated: 2023/12/20 20:55:43 by vivaccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ t_stack	*find_big(t_stack *stack)
 	t_stack		*big;
 	int			i;
 
-	i = -2147483648;
+	i = INT_MIN;
 	big = stack;
 	while (stack)
 	{
