@@ -6,7 +6,7 @@
 /*   By: vivaccar <vivaccar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 18:30:21 by vivaccar          #+#    #+#             */
-/*   Updated: 2023/12/18 18:38:56 by vivaccar         ###   ########.fr       */
+/*   Updated: 2023/12/20 19:16:11 by vivaccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,27 +99,13 @@ void	get_cost(t_stack **a, t_stack **b)
 	tmp = *a;
 	while (tmp)
 	{
-		if (!(tmp->before_med) && !(tmp->target->before_med))
-		{
-			if (tmp->index >= tmp->target->index)
-				tmp->cost = size_b - tmp->target->index;
-			else
-				tmp->cost = size_a - tmp->index;
-		}
-		else if (tmp->before_med && tmp->target->before_med)
-		{
-			if (tmp->index >= tmp->target->index)
-				tmp->cost = tmp->index;
-			else
-				tmp->cost = tmp->target->index;
-		}
+		tmp->cost = tmp->index;
+		if (!tmp->before_med)
+			tmp->cost = size_a - tmp->index;
+		if (tmp->target->before_med)
+			tmp->cost += tmp->target->index;
 		else
-		{
-			if ((tmp->before_med) && !(tmp->target->before_med))
-				tmp->cost = (size_b - tmp->target->index) + tmp->index;
-			else 
-				tmp->cost = (size_a - tmp->index) + tmp->target->index;			
-		}
+			tmp->cost += size_b - (tmp->target->index);
 		tmp = tmp->next;
 	}
 }
