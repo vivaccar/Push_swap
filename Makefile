@@ -1,6 +1,6 @@
 SRCS	=	push_swap.c check_input.c start_stack.c utils.c \
 			sorts.c push_move.c rev_rotate_move.c rotate_move.c \
-			swap_move.c set_datas.c push_to_b.c
+			swap_move.c set_datas.c push_to_b.c utils_b.c
 
 OBJS	=	$(SRCS:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: vivaccar <vivaccar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 22:04:38 by vivaccar          #+#    #+#             */
-/*   Updated: 2023/12/20 20:13:40 by vivaccar         ###   ########.fr       */
+/*   Updated: 2023/12/21 21:45:37 by vivaccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ void	rev_rotate_ab(t_stack **stack_a, t_stack **stack_b, t_stack *cheapest_node)
 	while (*stack_a != cheapest_node && *stack_b != cheapest_node->target)
 		rrr(stack_a, stack_b);
 	while (*stack_a != cheapest_node)
-		ra(stack_a);
+		rra(stack_a);
 	while (*stack_b != cheapest_node->target)
-		rb(stack_b);
+		rrb(stack_b);
 }
 
 void	ra_and_rrb(t_stack **stack_a, t_stack **stack_b, t_stack *cheapest_node)
@@ -50,9 +50,9 @@ void	rra_and_rb(t_stack **stack_a, t_stack **stack_b, t_stack *cheapest_node)
 
 void	push_to_b(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack	*cheapest_node = set_cheapest(stack_a);
-
+	t_stack	*cheapest_node;
 	
+	cheapest_node = set_cheapest(stack_a);
 	//printf("Cheapest Node: %i, Cheap Cost: %i, Before: %i, Target: %i\n", cheapest_node->value, cheapest_node->cost, cheapest_node->before_med, cheapest_node->target->value);
 	if ((cheapest_node->before_med) && (cheapest_node->target->before_med))
 		rotate_ab(stack_a, stack_b, cheapest_node);

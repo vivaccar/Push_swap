@@ -6,7 +6,7 @@
 /*   By: vivaccar <vivaccar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 12:27:33 by vivaccar          #+#    #+#             */
-/*   Updated: 2023/12/12 21:21:46 by vivaccar         ###   ########.fr       */
+/*   Updated: 2023/12/21 21:01:29 by vivaccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ int	check_input(char **argv, int argc)
 	while (numbers[i])
 	{
 		t = ft_atol(numbers[i]);
-		if ((t > 2147483647 || t < -2147483648) || !numbers[i][0]
+		if ((t > INT_MAX || t < INT_MIN) || !numbers[i][0]
 			|| !check_digit(numbers[i]) || !check_repeat(numbers, t))		
 		{
 			if (argc == 2)
