@@ -6,7 +6,7 @@
 /*   By: vivaccar <vivaccar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 11:19:34 by vivaccar          #+#    #+#             */
-/*   Updated: 2023/12/18 22:06:32 by vivaccar         ###   ########.fr       */
+/*   Updated: 2023/12/21 19:19:51 by vivaccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void		ft_free(t_stack **head);
 void		str_free(char ***numbers);
 void		push_swap(t_stack **stack_a);
 void		start_b(t_stack **stack_a, t_stack **stack_b);
+t_stack		*find_min(t_stack *stack);
 
 // SET NODES
 void		set_datas(t_stack **a, t_stack **b);
@@ -88,5 +89,7 @@ void		rev_rotate_ab(t_stack **stack_a, t_stack **stack_b, t_stack *cheapest_node
 void		ra_and_rrb(t_stack **stack_a, t_stack **stack_b, t_stack *cheapest_node);
 void		rra_and_rb(t_stack **stack_a, t_stack **stack_b, t_stack *cheapest_node);
 void		push_to_b(t_stack **stack_a, t_stack **stack_b);
+void		max_on_top(t_stack **stack);
+void		get_target_b(t_stack **stack_a, t_stack **stack_b);
 
 #endif
