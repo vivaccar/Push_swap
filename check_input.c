@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_input.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vivaccar <vivaccar@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: vinivaccari <vinivaccari@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 12:27:33 by vivaccar          #+#    #+#             */
-/*   Updated: 2023/12/23 16:32:59 by vivaccar         ###   ########.fr       */
+/*   Updated: 2023/12/23 22:26:25 by vinivaccari      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ void	check_input(int argc, char **argv)
 		{
 			if (argc == 2)
 				str_free(&argv);
-			write (1, "Error", 5);
+			write (1, "Error\n", 6);
 			exit(1);
 		}
 		i++;
