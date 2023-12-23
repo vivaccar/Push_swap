@@ -1,32 +1,58 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   sorts.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vivaccar <vivaccar@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: vinivaccari <vinivaccari@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/23 15:00:10 by vivaccar          #+#    #+#             */
-/*   Updated: 2023/12/23 16:12:04 by vivaccar         ###   ########.fr       */
+/*   Created: 2023/12/09 18:17:33 by vivaccar          #+#    #+#             */
+/*   Updated: 2023/12/23 22:20:13 by vinivaccari      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char	**argv)
+void	sort_three(t_stack **head)
 {
-	t_stack	*stack_a;
+	t_stack	*big;
 
-	stack_a = NULL;
-	if (argc == 1 || (!argv[1][0] && argc == 2))
-		return (0);
-	check_input(argc, argv);
-	if (argc == 2)
-		argv = ft_split(argv[1], ' ');
-	else 
-		argv = argv + 1;
-	start_stack(&stack_a, argv);
-	push_swap(&stack_a);
-	if (argc == 2)
-		str_free(&argv);
-	ft_free(&stack_a);
+	big = find_big(*head);
+	if (big == *head)
+		ra(head);
+	else if (big == (*head)->next)
+		rra(head);
+	if (!stack_is_sorted(*head))
+		sa(head);
+}
+
+void	push_swap(t_stack **stack_a)
+{
+	t_stack		*stack_b;
+
+	stack_b = NULL;
+	if (!stack_is_sorted(*stack_a))
+	{
+		if (stack_size(*stack_a) == 2)
+			sa(stack_a);		
+		if (stack_size(*stack_a) == 3)
+			sort_three(stack_a);
+ 		if (stack_size(*stack_a) > 3)
+		{
+			start_b(stack_a, &stack_b);
+			sort_three(stack_a);
+		}
+/* 		t_stack *tmp = stack_b;
+		printf ("STACK B COMPLETA:\n");
+		if (stack_b)
+		{
+			set_datas_b(stack_a, &stack_b);
+			while (tmp)
+			{
+			printf("Value: %i, Target: %i, Index: %i, Before: %i, Cost: %i\n", tmp->value, tmp->target->value, tmp->index, tmp->before_med, tmp->cost);
+			tmp = tmp->next;	
+			}
+		} */
+		push_to_a(stack_a, &stack_b);
+		min_on_top(stack_a);
+	}
 }
