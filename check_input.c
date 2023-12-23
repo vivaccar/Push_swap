@@ -6,7 +6,7 @@
 /*   By: vivaccar <vivaccar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 12:27:33 by vivaccar          #+#    #+#             */
-/*   Updated: 2023/12/21 21:01:29 by vivaccar         ###   ########.fr       */
+/*   Updated: 2023/12/23 16:32:59 by vivaccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,22 @@ long long	ft_atol(const char *str)
 	return (result * signal);
 }
 
+int	check_digit(char *number)
+{
+	int	i;
+
+	i = 0;
+	if (number[0] == '-')
+		i++;
+	while (number[i])
+	{
+		if (!ft_isdigit(number[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
 int	check_repeat(char **numbers, int t)
 {
 	int	i;
@@ -57,23 +73,6 @@ int	check_repeat(char **numbers, int t)
 	return (1);
 }
 
-int	check_digit(char *number)
-{
-	int	i;
-
-	i = 0;
-	if (number[0] == '-')
-		i++;
-	while (number[i])
-	{
-		if (!ft_isdigit(number[i]))
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
-
 void	str_free(char ***numbers)
 {
 	int	i;
@@ -89,30 +88,30 @@ void	str_free(char ***numbers)
 	*numbers = NULL;
 }
 
-int	check_input(char **argv, int argc)
+void	check_input(int argc, char **argv)
 {
-	char			**numbers;
-	int				i;
-	long long		t;
-
+	int			i;
+	long long	t;
+	
 	i = 0;
 	if (argc == 2)
-		numbers = ft_split(argv[1], ' ');
+		argv = ft_split(argv[1], ' ');
 	else
-		numbers = argv + 1;
-	while (numbers[i])
+		argv = argv + 1;
+	while (argv[i])
 	{
-		t = ft_atol(numbers[i]);
-		if ((t > INT_MAX || t < INT_MIN) || !numbers[i][0]
-			|| !check_digit(numbers[i]) || !check_repeat(numbers, t))		
+		t = ft_atol(argv[i]);
+		if ((t > INT_MAX || t < INT_MIN) || !argv[i][0]
+			|| !check_digit(argv[i]) || !check_repeat(argv, t))
 		{
 			if (argc == 2)
-				str_free(&numbers);
-			return (0);
+				str_free(&argv);
+			write (1, "Error", 5);
+			exit(1);
 		}
 		i++;
 	}
 	if (argc == 2)
-		str_free(&numbers);
-	return (1);
+		str_free(&argv);
 }
+
