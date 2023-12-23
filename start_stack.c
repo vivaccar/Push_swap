@@ -6,11 +6,27 @@
 /*   By: vivaccar <vivaccar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 19:38:18 by vivaccar          #+#    #+#             */
-/*   Updated: 2023/12/08 16:17:29 by vivaccar         ###   ########.fr       */
+/*   Updated: 2023/12/23 16:32:03 by vivaccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	start_b(t_stack **stack_a, t_stack **stack_b)
+{
+	if (stack_size(*stack_a) > 3)
+		pb(stack_a, stack_b);
+	if (stack_size(*stack_a) > 3)
+		pb(stack_a, stack_b);
+	while (stack_size(*stack_a) > 3)
+	{
+		set_datas(stack_a, stack_b);
+		push_to_b(stack_a, stack_b);
+		pb(stack_a, stack_b);
+	}
+	set_datas(stack_a, stack_b);
+	max_on_top(stack_b);
+}
 
 t_stack	*create_node(int n)
 {
@@ -19,9 +35,9 @@ t_stack	*create_node(int n)
 	node = malloc(sizeof(t_stack));
 	if (node == NULL)
 		return (NULL);
-	node ->value = n;
-	node ->next = NULL;
-	node ->prev = NULL;
+	node->value = n;
+	node->next = NULL;
+	node->prev = NULL;
 	return (node);
 }
 

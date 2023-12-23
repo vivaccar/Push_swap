@@ -6,11 +6,26 @@
 /*   By: vivaccar <vivaccar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 19:16:51 by vivaccar          #+#    #+#             */
-/*   Updated: 2023/12/21 20:46:47 by vivaccar         ###   ########.fr       */
+/*   Updated: 2023/12/23 16:16:50 by vivaccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	min_on_top(t_stack **stack_a)
+{
+	t_stack	*min;
+
+	min = find_min(*stack_a);
+	get_index_med(stack_a);
+	while (*stack_a != min)
+	{
+		if (min->before_med)
+			ra(stack_a);
+		else
+			rra(stack_a);
+	}
+}
 
 void	max_on_top(t_stack **stack)
 {
@@ -50,33 +65,4 @@ t_stack	*find_min(t_stack *stack)
 		stack = stack->next;
 	}
 	return (min);
-}
-
-void	get_target_b(t_stack **stack_a, t_stack **stack_b)
-{
-	t_stack	*tmp;
-	t_stack	*cur_a;
-	t_stack *target_node;
-	int		cur_match;
-	
-	tmp = *stack_b;
-	while (tmp)
-	{
-		cur_match = INT_MAX;
-		cur_a = *stack_a;
-		while (cur_a)
-		{
-			if(cur_a->value < cur_match && tmp->value < cur_a->value)
-			{
-				target_node = cur_a;
-				cur_match = cur_a->value;
-			}
-			cur_a = cur_a->next;
-		}	
-		if(cur_match == INT_MAX)
-			tmp->target = find_min(*stack_a);
-		else
-			tmp->target = target_node;
-		tmp = tmp->next;
-	}
 }
