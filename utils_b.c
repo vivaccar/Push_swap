@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_b.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vivaccar <vivaccar@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: vinivaccari <vinivaccari@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 19:16:51 by vivaccar          #+#    #+#             */
-/*   Updated: 2023/12/23 16:16:50 by vivaccar         ###   ########.fr       */
+/*   Updated: 2023/12/24 13:49:19 by vinivaccari      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ void	min_on_top(t_stack **stack_a)
 	while (*stack_a != min)
 	{
 		if (min->before_med)
-			ra(stack_a);
+			ra(stack_a, 1);
 		else
-			rra(stack_a);
+			rra(stack_a, 1);
 	}
 }
 
@@ -32,20 +32,12 @@ void	max_on_top(t_stack **stack)
 	t_stack		*big;
 
 	big = find_big(*stack);
-	t_stack *tmp = *stack;
-	//printf ("STACK B ANTES DE COLOCAR O MAIOR NO TOPO:\n");
-	//printf ("Big: %i\n", big->value);
-	while (tmp)
-	{
-		//printf("Value: %i, Index: %i, Before median: %i\n", tmp->value, tmp-> index, tmp->before_med);
-		tmp = tmp->next;	
-	}
 	while (*stack != big)
 	{
 		if (big->before_med)
-			rb(stack);
+			rb(stack, 1);
 		else
-			rrb(stack);
+			rrb(stack, 1);
 	}
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_move.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vivaccar <vivaccar@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: vinivaccari <vinivaccari@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 20:14:50 by vivaccar          #+#    #+#             */
-/*   Updated: 2023/12/18 21:03:14 by vivaccar         ###   ########.fr       */
+/*   Updated: 2023/12/24 12:57:00 by vinivaccari      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,16 @@ void 	push(t_stack **out, t_stack **in)
 	}
 }
 
-void	pa(t_stack **a, t_stack **b)
+void	pa(t_stack **a, t_stack **b, int flag)
 {
 	push(b, a);
-	write (1, "pa\n", 3);
+	if (flag == 1)
+		write (1, "pa\n", 3);
 }
 
-void	pb(t_stack **a, t_stack **b)
+void	pb(t_stack **a, t_stack **b, int flag)
 {
 	push(a, b);
-	write (1, "pb\n", 3);
+	if (flag == 1)
+		write (1, "pb\n", 3);
 }

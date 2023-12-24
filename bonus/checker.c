@@ -13,4 +13,8 @@ int	main(int argc, char	**argv)
 	else 
 		argv = argv + 1;
 	start_stack(&stack_a, argv);
+	if (argc == 2)
+		str_free(&argv);
+	read_commands(&stack_a);
+	ft_free(&stack_a);
 }

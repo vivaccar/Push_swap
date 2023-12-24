@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   start_stack.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vivaccar <vivaccar@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: vinivaccari <vinivaccari@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 19:38:18 by vivaccar          #+#    #+#             */
-/*   Updated: 2023/12/23 16:32:03 by vivaccar         ###   ########.fr       */
+/*   Updated: 2023/12/24 13:02:13 by vinivaccari      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 void	start_b(t_stack **stack_a, t_stack **stack_b)
 {
 	if (stack_size(*stack_a) > 3)
-		pb(stack_a, stack_b);
+		pb(stack_a, stack_b, 1);
 	if (stack_size(*stack_a) > 3)
-		pb(stack_a, stack_b);
+		pb(stack_a, stack_b, 1);
 	while (stack_size(*stack_a) > 3)
 	{
 		set_datas(stack_a, stack_b);
 		push_to_b(stack_a, stack_b);
-		pb(stack_a, stack_b);
+		pb(stack_a, stack_b, 1);
 	}
 	set_datas(stack_a, stack_b);
 	max_on_top(stack_b);

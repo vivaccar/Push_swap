@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_to_a.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vivaccar <vivaccar@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: vinivaccari <vinivaccari@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 16:07:35 by vivaccar          #+#    #+#             */
-/*   Updated: 2023/12/23 16:16:36 by vivaccar         ###   ########.fr       */
+/*   Updated: 2023/12/24 13:00:52 by vinivaccari      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ void	push_to_a(t_stack **stack_a, t_stack **stack_b)
 		while (*stack_a != (*stack_b)->target)
 		{
 			if ((*stack_b)->target->before_med)
-				ra(stack_a);
+				ra(stack_a, 1);
 			else
-				rra(stack_a);
+				rra(stack_a, 1);
 		}
-		pa(stack_a, stack_b);
+		pa(stack_a, stack_b, 1);
 	}
 }
 
