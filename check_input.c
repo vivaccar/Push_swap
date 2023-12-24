@@ -6,7 +6,7 @@
 /*   By: vinivaccari <vinivaccari@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 12:27:33 by vivaccar          #+#    #+#             */
-/*   Updated: 2023/12/23 22:26:25 by vinivaccari      ###   ########.fr       */
+/*   Updated: 2023/12/24 16:38:30 by vinivaccari      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,11 @@ int	check_digit(char *number)
 
 	i = 0;
 	if (number[0] == '-')
+	{
 		i++;
+		if (!number[1])
+			return (0);
+	}
 	while (number[i])
 	{
 		if (!ft_isdigit(number[i]))
