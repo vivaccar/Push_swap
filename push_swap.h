@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vivaccar <vivaccar@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: vinivaccari <vinivaccari@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 11:19:34 by vivaccar          #+#    #+#             */
-/*   Updated: 2023/12/23 16:20:43 by vivaccar         ###   ########.fr       */
+/*   Updated: 2023/12/24 12:58:55 by vinivaccari      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,25 +66,25 @@ void		push_swap(t_stack **stack_a);
 
 // ROTATE
 void		rotate(t_stack **head);
-void		ra(t_stack **stack_a);
-void		rb(t_stack	**stack_b);
-void		rr(t_stack **stack_a, t_stack **stack_b);
+void		ra(t_stack **stack_a, int flag);
+void		rb(t_stack	**stack_b, int flag);
+void		rr(t_stack **stack_a, t_stack **stack_b, int flag);
 
 // SWAP
 void		swap(t_stack **head);
-void		sa(t_stack **a);
-void		sb(t_stack **b);
-void		ss(t_stack **a, t_stack **b);
+void		sa(t_stack **a, int flag);
+void		sb(t_stack **b, int flag);
+void		ss(t_stack **a, t_stack **b, int flag);
 
 // REV ROTATE
 void		r_rotate(t_stack **head);
-void		rra(t_stack **a);
-void		rrb(t_stack **b);
-void		rrr(t_stack **a, t_stack **b);
+void		rra(t_stack **a, int flag);
+void		rrb(t_stack **b, int flag);
+void		rrr(t_stack **a, t_stack **b, int flag);
 
 // PUSH
-void		pa(t_stack **a, t_stack **b);
-void		pb(t_stack **a, t_stack **b);
+void		pa(t_stack **a, t_stack **b, int flag);
+void		pb(t_stack **a, t_stack **b, int flag);
 void		push(t_stack **out, t_stack **in);
 
 // PUSH B

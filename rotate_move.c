@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate_move.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vivaccar <vivaccar@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: vinivaccari <vinivaccari@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 20:12:06 by vivaccar          #+#    #+#             */
-/*   Updated: 2023/12/14 20:21:39 by vivaccar         ###   ########.fr       */
+/*   Updated: 2023/12/24 12:55:08 by vinivaccari      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,21 +24,24 @@ void	rotate(t_stack **head)
 	last_node->next->next = NULL;
 }
 
-void	ra(t_stack **stack_a)
+void	ra(t_stack **stack_a, int flag)
 {
 	rotate(stack_a);
-	write(1, "ra\n", 3);
+	if (flag == 1)
+		write(1, "ra\n", 3);
 }
 
-void	rb(t_stack	**stack_b)
+void	rb(t_stack	**stack_b, int flag)
 {
 	rotate(stack_b);
-	write(1, "rb\n", 3);
+	if (flag == 1)
+		write(1, "rb\n", 3);
 }
 
-void	rr(t_stack **stack_a, t_stack **stack_b)
+void	rr(t_stack **stack_a, t_stack **stack_b, int flag)
 {
 	rotate(stack_a);
 	rotate(stack_b);
-	write (1, "rr\n", 3);
+	if (flag == 1)
+		write (1, "rr\n", 3);
 }

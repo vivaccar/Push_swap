@@ -9,14 +9,11 @@
 # include "../Libft/libft.h"
 # include "../push_swap.h" 
 
-#ifndef BUFFER_SIZE
-#define BUFFER_SIZE 3
-#endif
-
 char	*get_next_line(int fd);
-char	*ft_strchr_2(char *s, int c);
 char	*ft_read(int fd, char *text);
 char	*ft_delete(char *text);
-char	*ft_extractline(char *text);
+void	input_error(char *op, t_stack **stack_a, t_stack **stack_b);
+void	do_ops(char *op, t_stack **stack_a, t_stack **stack_b);
+void	read_commands(t_stack **stack_a);
 
 #endif

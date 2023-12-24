@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap_move.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vivaccar <vivaccar@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: vinivaccari <vinivaccari@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 18:26:12 by vivaccar          #+#    #+#             */
-/*   Updated: 2023/12/23 15:50:50 by vivaccar         ###   ########.fr       */
+/*   Updated: 2023/12/24 12:53:45 by vinivaccari      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,21 +25,24 @@ void	swap(t_stack **head)
 	(*head)->prev = NULL;
 }
 
-void	sa(t_stack **a)
+void	sa(t_stack **a, int flag)
 {
 	swap(a);
-	write (1, "sa\n", 3);
+	if (flag == 1)
+		write (1, "sa\n", 3);
 }
 
-void	sb(t_stack **b)
+void	sb(t_stack **b, int flag)
 {
 	swap(b);
-	write (1, "sb\n", 3);	
+	if (flag == 1)
+		write (1, "sb\n", 3);	
 }
 
-void	ss(t_stack **a, t_stack **b)
+void	ss(t_stack **a, t_stack **b, int flag)
 {
 	swap(a);
 	swap(b);
-	write (1, "ss\n", 3);
+	if (flag == 1)
+		write (1, "ss\n", 3);
 }
