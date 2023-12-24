@@ -2,29 +2,43 @@ SRCS	=	main.c check_input.c start_stack.c utils.c \
 			push_swap.c push_move.c rev_rotate_move.c rotate_move.c \
 			swap_move.c set_datas.c push_to_b.c utils_b.c push_to_a.c
 
+BONUS	=	bonus/checker.c \
+			bonus/get_next_line.c
+
 OBJS	=	$(SRCS:.c=.o)
+
+B_OBJS	=	$(BONUS:.c=.o)
 
 CC		=	cc
 
 NAME	=	push_swap
 
-CFLAGS  = -Wall -Wextra -Werror -g
+NAME_B	=	checker
 
-LIBFTA  = ./Libft/libft.a
+CFLAGS  = 	-Wall -Wextra -Werror -g
 
-LIBFTD  = ./Libft
+LIBFTA  = 	./Libft/libft.a
+
+LIBFTD  = 	./Libft
 
 all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBFTA)
 	$(CC) -g $(CFLAGS) $(OBJS) $(LIBFTA) -o $(NAME)
 
+bonus: $(NAME_B) 
+
+$(NAME_B):  $(OBJS) $(B_OBJS) $(LIBFTA)
+	$(CC) -g $(CFLAGS) $(OBJS) $(LIBFTA) -o $(NAME_B)
+
 clean:
+	rm -f $(B_OBJS)
 	rm -f $(OBJS)
 	make clean -C $(LIBFTD)
 
 fclean: clean
 	rm -f $(NAME)
+	rm -f $(NAME_B)
 	make fclean -C $(LIBFTD)
 
 re: fclean all
