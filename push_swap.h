@@ -6,7 +6,7 @@
 /*   By: vinivaccari <vinivaccari@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 11:19:34 by vivaccar          #+#    #+#             */
-/*   Updated: 2023/12/24 12:58:55 by vinivaccari      ###   ########.fr       */
+/*   Updated: 2023/12/27 22:38:03 by vinivaccari      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void		max_on_top(t_stack **stack);
 void		set_datas(t_stack **a, t_stack **b);
 void		get_target(t_stack **a, t_stack **b);
 void		get_cost(t_stack **a, t_stack **b);
+void		check_decrease_cost(t_stack *tmp, t_stack **a, t_stack **b);
 t_stack		*set_cheapest(t_stack **a);
 void		get_index_med(t_stack **a);
 

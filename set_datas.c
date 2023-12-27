@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_datas.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vivaccar <vivaccar@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: vinivaccari <vinivaccari@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 18:30:21 by vivaccar          #+#    #+#             */
-/*   Updated: 2023/12/20 19:16:11 by vivaccar         ###   ########.fr       */
+/*   Updated: 2023/12/27 22:32:12 by vinivaccari      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,24 +88,40 @@ t_stack	*set_cheapest(t_stack **a)
 	return (cheap_node);
 }
 
+void	check_decrease_cost(t_stack *tmp, t_stack **a, t_stack **b)
+{
+	if (tmp->before_med && tmp->target->before_med)
+	{
+		if (tmp->index < tmp->target->index)
+			tmp->cost -= tmp->index;
+		else
+			tmp->cost -= tmp->target->index;
+	}
+	if (!(tmp->before_med) && !(tmp->target->before_med))
+	{
+		if (stack_size(*a) - tmp->index < stack_size(*b) - tmp->target->index)
+			tmp->cost -= stack_size(*a) - tmp->index;
+		else
+			tmp->cost -= stack_size(*b) - tmp->target->index;
+	}
+}
+
 void	get_cost(t_stack **a, t_stack **b)
 {
-	int	size_a;
-	int	size_b;
 	t_stack *tmp;
 
-	size_a = stack_size(*a);
-	size_b = stack_size(*b);
 	tmp = *a;
 	while (tmp)
 	{
-		tmp->cost = tmp->index;
+		if (tmp->before_med)
+			tmp->cost = tmp->index;
 		if (!tmp->before_med)
-			tmp->cost = size_a - tmp->index;
+			tmp->cost = stack_size(*a) - tmp->index;
 		if (tmp->target->before_med)
 			tmp->cost += tmp->target->index;
-		else
-			tmp->cost += size_b - (tmp->target->index);
+		if (!(tmp->target->before_med))
+			tmp->cost += stack_size(*b) - tmp->target->index;
+		check_decrease_cost(tmp, a, b);
 		tmp = tmp->next;
 	}
 }
