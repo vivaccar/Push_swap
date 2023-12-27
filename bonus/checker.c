@@ -16,5 +16,4 @@ int	main(int argc, char	**argv)
 	if (argc == 2)
 		str_free(&argv);
 	read_commands(&stack_a);
-	ft_free(&stack_a);
 }
