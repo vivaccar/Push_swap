@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rev_rotate_move.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vinivaccari <vinivaccari@student.42.fr>    +#+  +:+       +#+        */
+/*   By: vivaccar <vivaccar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 20:13:43 by vivaccar          #+#    #+#             */
-/*   Updated: 2023/12/24 12:56:17 by vinivaccari      ###   ########.fr       */
+/*   Updated: 2023/12/27 11:26:17 by vivaccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	r_rotate(t_stack **head)
 {
 	t_stack	*last;
 
+	if (*head == NULL || (*head)->next == NULL)
+		return ;
 	last = find_last(*head);
 	last->prev->next = NULL;
 	last->next = *head;
