@@ -45,14 +45,16 @@ void	read_commands(t_stack **stack_a)
 
 	op = NULL;
 	stack_b = NULL;
-	while (1)
+	if (stack_is_sorted(*stack_a))
 	{
-		do_ops(op = get_next_line(0), stack_a, &stack_b);
-		if (op[0] == '\n')
-			break;
+		ft_free(stack_a);
+		return ;
+	}
+	while ((op = get_next_line(0)) != NULL)
+	{
+		do_ops(op, stack_a, &stack_b);
 		free(op);
 	}
-	free(op);
 	if (stack_is_sorted(*stack_a) && stack_b == NULL)
 		write (1, "OK\n", 3);
 	else
