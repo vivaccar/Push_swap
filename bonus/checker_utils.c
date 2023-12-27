@@ -43,15 +43,20 @@ void	read_commands(t_stack **stack_a)
 	char	*op;
 	t_stack	*stack_b;
 
+	op = NULL;
 	stack_b = NULL;
-	while (ft_strncmp(op, "\n", 1) != 0)
+	while (1)
 	{
-		op = get_next_line(0);
-		do_ops(op, stack_a, &stack_b);
+		do_ops(op = get_next_line(0), stack_a, &stack_b);
+		if (op[0] == '\n')
+			break;
+		free(op);
 	}
+	free(op);
 	if (stack_is_sorted(*stack_a) && stack_b == NULL)
 		write (1, "OK\n", 3);
 	else
 		write (1, "KO\n", 3);
+	ft_free(stack_a);
 	ft_free(&stack_b);
 }
