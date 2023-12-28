@@ -26,12 +26,12 @@ LIBFTD  = 	./Libft
 all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBFTA)
-	$(CC) -g main.c $(CFLAGS) $(OBJS) $(LIBFTA) -o $(NAME)
+	$(CC) main.c $(CFLAGS) $(OBJS) $(LIBFTA) -o $(NAME)
 
 bonus: $(NAME_B) 
 
 $(NAME_B): $(OBJS) $(B_OBJS) $(LIBFTA)
-	$(CC) -g $(CFLAGS) $(OBJS) $(B_OBJS) $(LIBFTA) -o $(NAME_B)
+	$(CC) $(CFLAGS) $(OBJS) $(B_OBJS) $(LIBFTA) -o $(NAME_B)
 
 clean:
 	rm -f $(B_OBJS)
