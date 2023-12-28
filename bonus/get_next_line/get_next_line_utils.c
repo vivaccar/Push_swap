@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vinivaccari <vinivaccari@student.42.fr>    +#+  +:+       +#+        */
+/*   By: vivaccar <vivaccar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:03:35 by vinivaccari       #+#    #+#             */
-/*   Updated: 2023/11/08 14:23:23 by vinivaccari      ###   ########.fr       */
+/*   Updated: 2023/12/28 11:00:21 by vivaccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

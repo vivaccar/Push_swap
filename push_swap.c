@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vinivaccari <vinivaccari@student.42.fr>    +#+  +:+       +#+        */
+/*   By: vivaccar <vivaccar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 18:17:33 by vivaccar          #+#    #+#             */
-/*   Updated: 2023/12/24 13:47:46 by vinivaccari      ###   ########.fr       */
+/*   Updated: 2023/12/28 10:47:47 by vivaccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ void	push_swap(t_stack **stack_a)
 	if (!stack_is_sorted(*stack_a))
 	{
 		if (stack_size(*stack_a) == 2)
-			sa(stack_a, 1);		
+			sa(stack_a, 1);
 		if (stack_size(*stack_a) == 3)
 			sort_three(stack_a);
- 		if (stack_size(*stack_a) > 3)
+		if (stack_size(*stack_a) > 3)
 		{
 			start_b(stack_a, &stack_b);
 			sort_three(stack_a);

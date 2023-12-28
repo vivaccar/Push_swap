@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vinivaccari <vinivaccari@student.42.fr>    +#+  +:+       +#+        */
+/*   By: vivaccar <vivaccar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 11:19:34 by vivaccar          #+#    #+#             */
-/*   Updated: 2023/12/27 22:38:03 by vinivaccari      ###   ########.fr       */
+/*   Updated: 2023/12/28 11:07:05 by vivaccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,10 +89,10 @@ void		pb(t_stack **a, t_stack **b, int flag);
 void		push(t_stack **out, t_stack **in);
 
 // PUSH B
-void		rotate_ab(t_stack **stack_a, t_stack **stack_b, t_stack *cheapest_node);
-void		rev_rotate_ab(t_stack **stack_a, t_stack **stack_b, t_stack *cheapest_node);
-void		ra_and_rrb(t_stack **stack_a, t_stack **stack_b, t_stack *cheapest_node);
-void		rra_and_rb(t_stack **stack_a, t_stack **stack_b, t_stack *cheapest_node);
+void		rotate_2(t_stack **stack_a, t_stack **stack_b, t_stack *cheap_node);
+void		r_rot_2(t_stack **stack_a, t_stack **stack_b, t_stack *cheap_node);
+void		ra_rrb(t_stack **stack_a, t_stack **stack_b, t_stack *cheap_node);
+void		rra_rb(t_stack **stack_a, t_stack **stack_b, t_stack *cheap_node);
 void		push_to_b(t_stack **stack_a, t_stack **stack_b);
 
 // PUSH A

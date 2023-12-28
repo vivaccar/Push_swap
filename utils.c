@@ -6,7 +6,7 @@
 /*   By: vivaccar <vivaccar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/03 15:28:39 by vivaccar          #+#    #+#             */
-/*   Updated: 2023/12/20 20:55:43 by vivaccar         ###   ########.fr       */
+/*   Updated: 2023/12/28 10:50:34 by vivaccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,12 +70,13 @@ t_stack	*find_last(t_stack *stack)
 	last = stack;
 	return (last);
 }
+
 void	ft_free(t_stack **head)
 {
 	t_stack	*to_free;
-	t_stack *tmp;
+	t_stack	*tmp;
 
-	if(!head)
+	if (!head)
 		return ;
 	to_free = *head;
 	while (to_free)
