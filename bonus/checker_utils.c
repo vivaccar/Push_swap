@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checker_utils.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vivaccar <vivaccar@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/28 10:54:41 by vivaccar          #+#    #+#             */
+/*   Updated: 2023/12/28 11:13:00 by vivaccar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "checker.h"
 
 void	input_error(char *op, t_stack **stack_a, t_stack **stack_b)
@@ -45,13 +57,11 @@ void	read_commands(t_stack **stack_a)
 
 	op = NULL;
 	stack_b = NULL;
-	if (stack_is_sorted(*stack_a))
+	while (1)
 	{
-		ft_free(stack_a);
-		return ;
-	}
-	while ((op = get_next_line(0)) != NULL)
-	{
+		op = get_next_line(0);
+		if (op == NULL)
+			break ;
 		do_ops(op, stack_a, &stack_b);
 		free(op);
 	}

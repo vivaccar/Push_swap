@@ -3,47 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   set_datas.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vinivaccari <vinivaccari@student.42.fr>    +#+  +:+       +#+        */
+/*   By: vivaccar <vivaccar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 18:30:21 by vivaccar          #+#    #+#             */
-/*   Updated: 2023/12/27 22:32:12 by vinivaccari      ###   ########.fr       */
+/*   Updated: 2023/12/28 10:45:50 by vivaccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	get_target(t_stack **a, t_stack **b)
-{
-	t_stack		*tmp;
-	t_stack		*cur_b;
-	int			cur_match;
-
-	tmp = *a;
-	while (tmp)
-	{
-		cur_match = INT_MIN;
-		cur_b = *b;
-		while (cur_b)
-		{
-			if (cur_b->value > cur_match && cur_b->value < tmp->value)
-			{
-				tmp->target = cur_b;
-				cur_match = cur_b->value;
-			}
-			cur_b = cur_b->next;
-		}
-		if (cur_match == INT_MIN)
-			tmp->target = find_big(*b);
-		tmp = tmp->next;
-	}
-}
 
 void	get_index_med(t_stack **a)
 {
 	int		size;
 	int		i;
 	t_stack	*tmp;
-	
+
 	size = stack_size(*a);
 	tmp = *a;
 	i = 0;
@@ -64,7 +38,7 @@ t_stack	*set_cheapest(t_stack **a)
 	t_stack	*tmp;
 	t_stack	*cheap_node;
 	int		cur_cheapest;
-	
+
 	tmp = *a;
 	cheap_node = *a;
 	cur_cheapest = INT_MAX;
@@ -73,7 +47,7 @@ t_stack	*set_cheapest(t_stack **a)
 		if (tmp->cost < cur_cheapest)
 		{
 			cheap_node = tmp;
-			cur_cheapest = tmp->cost;	
+			cur_cheapest = tmp->cost;
 		}
 		tmp = tmp->next;
 	}
@@ -108,7 +82,7 @@ void	check_decrease_cost(t_stack *tmp, t_stack **a, t_stack **b)
 
 void	get_cost(t_stack **a, t_stack **b)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	tmp = *a;
 	while (tmp)

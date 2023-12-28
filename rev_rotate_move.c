@@ -6,7 +6,7 @@
 /*   By: vivaccar <vivaccar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 20:13:43 by vivaccar          #+#    #+#             */
-/*   Updated: 2023/12/27 11:26:17 by vivaccar         ###   ########.fr       */
+/*   Updated: 2023/12/28 10:54:23 by vivaccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	r_rotate(t_stack **head)
 void	rra(t_stack **a, int flag)
 {
 	r_rotate(a);
-	if (flag == 1)	
+	if (flag == 1)
 		write (1, "rra\n", 4);
 }
 

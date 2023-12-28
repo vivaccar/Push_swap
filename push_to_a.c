@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_to_a.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vinivaccari <vinivaccari@student.42.fr>    +#+  +:+       +#+        */
+/*   By: vivaccar <vivaccar@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 16:07:35 by vivaccar          #+#    #+#             */
-/*   Updated: 2023/12/24 13:00:52 by vinivaccari      ###   ########.fr       */
+/*   Updated: 2023/12/28 10:52:29 by vivaccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ void	get_target_b(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*tmp;
 	t_stack	*cur_a;
-	t_stack *target_node;
-	long		cur_match;
-	
+	t_stack	*target_node;
+	long	cur_match;
+
 	tmp = *stack_b;
 	while (tmp)
 	{
@@ -49,14 +49,14 @@ void	get_target_b(t_stack **stack_a, t_stack **stack_b)
 		cur_a = *stack_a;
 		while (cur_a)
 		{
-			if(cur_a->value < cur_match && tmp->value < cur_a->value)
+			if (cur_a->value < cur_match && tmp->value < cur_a->value)
 			{
 				target_node = cur_a;
 				cur_match = cur_a->value;
 			}
 			cur_a = cur_a->next;
-		}	
-		if(cur_match == LONG_MAX)
+		}
+		if (cur_match == LONG_MAX)
 			tmp->target = find_min(*stack_a);
 		else
 			tmp->target = target_node;
